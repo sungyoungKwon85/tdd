@@ -4,18 +4,17 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static original.Movie.CHILDRENS;
+import static original.Movie.NEW_RELEASE;
+import static original.Movie.REGULAR;
 
 public class CustomerTest {
 
 
-    public static final int NEW_RELEASE = 1;
-    public static final int REGULAR = 0;
-    public static final int CHILDRENS = 2;
     private Customer customer;
 
     @Before
     public void setUp() throws Exception {
-
         customer = new Customer(null);
     }
 
@@ -53,15 +52,27 @@ public class CustomerTest {
     }
 
     @Test
-    public void statement_for_new_release() {
-        Rental rental = getRental(3, NEW_RELEASE);
+    public void statement_for_new_release_daysRented_is_more_than_one_days() {
+        Rental rental = getRental(2, NEW_RELEASE);
         customer.addRental(rental);
         String statement = customer.statement();
 
         assertEquals("Rental Record for null\n"
-            + "\t9.0(null)\n"
-            + "Amount owed is 9.0\n"
+            + "\t6.0(null)\n"
+            + "Amount owed is 6.0\n"
             + "You earned 2 frequent renter pointers", statement);
+    }
+
+    @Test
+    public void statement_for_new_release_daysRented_is_less_than_two_days() {
+        Rental rental = getRental(1, NEW_RELEASE);
+        customer.addRental(rental);
+        String statement = customer.statement();
+
+        assertEquals("Rental Record for null\n"
+            + "\t3.0(null)\n"
+            + "Amount owed is 3.0\n"
+            + "You earned 1 frequent renter pointers", statement);
     }
 
     @Test
