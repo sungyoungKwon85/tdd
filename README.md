@@ -6,23 +6,34 @@
 
 // 'Extract'
 cmd + opt + C // constant
+
+
 cmd + opt + M // method
+
+
 cmd + opt + F // parameter
+
+
+
 
 // 'Inline'
 cmd + opt + N  
+
 
 
 // make Test file
 Shift + Cmd + T
 
 
+
 // Generated...
 Cmd + N 
 
 
+
 // changed
 ctrl + opt + c // run test with coverage
+
 
 
 // 
