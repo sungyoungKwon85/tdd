@@ -2,6 +2,8 @@
 
 
 - intellij shortcut
+
+
 // 'Extract'
 cmd + opt + C // constant
 cmd + opt + M // method
@@ -21,7 +23,6 @@ Cmd + N
 
 // changed
 ctrl + opt + c // run test with coverage
-
 
 
 // 
